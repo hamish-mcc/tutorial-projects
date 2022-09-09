@@ -4,13 +4,16 @@ from redis_om import get_redis_connection, HashModel
 import uvicorn
 import json
 import app.consumers as consumers
+from dotenv import load_dotenv
+import os
 
-# TODO refactor to use env variables before pushing to GitHub
-FRONTEND_URL = "http://localhost:3000"
-REDIS_HOST = "redis-17589.c296.ap-southeast-2-1.ec2.cloud.redislabs.com"
-REDIS_PORT = 17589
-REDIS_USER = "default"
-REDIS_PASSWORD = "hurfGY2mEMi2ANg7G15Be4NKhfYTx7WX"
+load_dotenv()
+
+FRONTEND_URL = os.getenv('FRONTEND_URL', default='http://localhost:3000')
+REDIS_HOST = os.getenv('REDIS_HOST')
+REDIS_PORT = os.getenv('REDIS_PORT')
+REDIS_USER = os.getenv('REDIS_USER')
+REDIS_PASSWORD = os.getenv('REDIS_PASSWORD')
 
 app = FastAPI()
 
