@@ -15,4 +15,4 @@
     - HashModel.save() method saves data to Redis JSON DB
     - redis.set() method saves data to cache
 
-**Continue from 29:33**
+**Continue from 1:06.00**
