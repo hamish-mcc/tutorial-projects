@@ -25,7 +25,7 @@ def pickup_products(state, event):
     qty = int(data['quantity'])
     new_budget = state["budget"] - int(data["purchase_price"]) * qty
     if new_budget < 0:
-        raise HTTPException(status_code=400, detail='Not enough budget')
+        raise HTTPException(status_code=400, detail=f'Not enough budget {new_budget}')
     return state | {
         "budget": new_budget,
         "purchase_price": int(data['purchase_price']),

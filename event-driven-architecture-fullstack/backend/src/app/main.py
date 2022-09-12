@@ -52,7 +52,7 @@ class Event(HashModel):
 
 @app.get('/deliveries/{pk}/status')
 async def get_state(pk: str):
-    state = None  # redis.get(f'delivery:{pk}')
+    state = redis.get(f'delivery:{pk}')
     if state is not None:
         return json.loads(state)
     state = build_state(pk)
